@@ -1,0 +1,10 @@
+{
+  "/v1/*": {
+      "target": "https://gateway.marvel.com/",
+      "secure": false,
+      "changeOrigin": true,
+      "headers":{"Referer":"https://developer.marvel.com"},
+      "pathRewrite": {"^/v1":"https://gateway.marvel.com/v1/"
+      }
+  }
+}

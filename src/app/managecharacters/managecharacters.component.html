@@ -1,0 +1,51 @@
+<h1>Characters</h1>
+
+<br/>
+
+
+<table class="table">
+    <thead class="thead-info">
+  <tr>
+   
+    <th colspan="2" style="text-align:center"><input type="button" value="Get Characters" (click)="loadCharacters()" class="btn btn-success"/></th>
+  </tr></thead>
+  <tbody>
+      <tr *ngIf="characters">
+          <td >
+            <div class="row">
+                <div class="col col-md-12" style="width: 500px;height:400px;overflow: scroll; position: initial;" >
+                   <ul>
+                      <li  *ngFor="let character of characters.data.results" (click)="onSelect(character)">{{character.name}}</li>
+              </ul>
+                </div>
+              </div>
+      </td>
+      <td>
+            <div class="row" *ngIf="selectedCharacter">
+                <div class="col col-md-12" style="width: 500px; height:400px;overflow: scroll;">
+            <h4 style="text-align: center">{{selectedCharacter.name}}</h4>
+                   <ul>
+                      <li TYPE="none" style="text-align: center">
+                        <img class="img-responsive" width="150px" src="{{selectedCharacter.thumbnail.path +'.'+ selectedCharacter.thumbnail.extension}}"></li>
+              </ul>
+              <br/>
+              
+                   <ul ><h6>Stories</h6>
+                      <li TYPE="none" *ngFor="let story of selectedCharacter.stories.items">
+                       {{story.name}}</li>
+              </ul>
+              <br/>
+              
+                   <ul ><h6>Comics</h6>
+                      <li TYPE="none" *ngFor="let story of selectedCharacter.comics.items">
+                       {{story.name}}</li>
+              </ul>
+                </div>
+              </div>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  <div *ngIf="chart">
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>
